@@ -18,26 +18,14 @@
 - 输入窗口覆盖约1秒音频，拟每100–200ms更新一次识别结果。
 - 模型约266万MAC，权重和层间激活采用INT8；当前汇编内核使用符号展开的INT16数据进行整数运算。
 
-## 当前进展
-
-- 已完成普通卷积、depthwise卷积、pointwise卷积的汇编实现与仿真验证。
-- 已完成融合偏置/量化/ReLU、全局平均池化和全连接。
-- 使用并行发射、双MAC、硬件循环与DAG寻址优化。
-- 已准备小批测试音频。
-- 尚未完成BF533 MFCC移植、真实预训练模型端到端串接和上板音频/LED联调。
-
 ## 开发环境
 
 - 处理器：ADSP-BF533。
 - 工具链：CrossCore Embedded Studio 2.10.0。
-- 验证：BF533单处理器仿真器；C仅作golden，MAC性能参照FIR汇编例程。
-
-当前验证结果属于算子仿真，不代表上板实时性能或完整系统识别准确率。
+- 验证：BF533单处理器仿真器
 
 ## 参考资料
 
 - [Arm ML-KWS-for-MCU](https://github.com/ARM-software/ML-KWS-for-MCU)
 - [Hello Edge: Keyword Spotting on Microcontrollers](https://arxiv.org/abs/1711.07128)
 - [Google Speech Commands](https://arxiv.org/abs/1804.03209)
-
-本仓库当前仅发布README；项目源码、测试音频、工具输出和硬件手册保留在本地。
