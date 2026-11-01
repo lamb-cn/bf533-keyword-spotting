@@ -1,0 +1,74 @@
+[
+  {
+    "label": "go",
+    "time_ms": 2100,
+    "votes": 8,
+    "peak": 127
+  },
+  {
+    "label": "left",
+    "time_ms": 3800,
+    "votes": 8,
+    "peak": 127
+  },
+  {
+    "label": "go",
+    "time_ms": 5400,
+    "votes": 8,
+    "peak": 127
+  },
+  {
+    "label": "go",
+    "time_ms": 7000,
+    "votes": 8,
+    "peak": 91
+  },
+  {
+    "label": "right",
+    "time_ms": 8800,
+    "votes": 7,
+    "peak": 127
+  },
+  {
+    "label": "on",
+    "time_ms": 10700,
+    "votes": 8,
+    "peak": 103
+  },
+  {
+    "label": "off",
+    "time_ms": 12000,
+    "votes": 8,
+    "peak": 127
+  },
+  {
+    "label": "stop",
+    "time_ms": 13900,
+    "votes": 4,
+    "peak": 67
+  },
+  {
+    "label": "yes",
+    "time_ms": 15500,
+    "votes": 9,
+    "peak": 127
+  },
+  {
+    "label": "no",
+    "time_ms": 17300,
+    "votes": 6,
+    "peak": 77
+  },
+  {
+    "label": "up",
+    "time_ms": 18600,
+    "votes": 7,
+    "peak": 66
+  },
+  {
+    "label": "down",
+    "time_ms": 20400,
+    "votes": 8,
+    "peak": 127
+  }
+]

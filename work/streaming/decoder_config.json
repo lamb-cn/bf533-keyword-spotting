@@ -1,0 +1,9 @@
+{
+  "rms": 100,
+  "quiet_ms": 600,
+  "delay_ms": 300,
+  "score_threshold": 0,
+  "margin_threshold": 10,
+  "min_votes": 2,
+  "min_voiced_frames": 3
+}

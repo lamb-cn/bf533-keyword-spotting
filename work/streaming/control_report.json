@@ -1,0 +1,105 @@
+{
+  "mode": "control",
+  "goal_verified": false,
+  "duration_seconds": 21.8,
+  "input_blocks": 1090,
+  "new_feature_updates": 1090,
+  "feature_fft_calls": 0,
+  "exact_silence_shortcuts": 0,
+  "inference_requests": 218,
+  "actual_native_network_calls": 0,
+  "events": [
+    {
+      "label": "go",
+      "time_ms": 2100,
+      "votes": 8,
+      "peak": 127
+    },
+    {
+      "label": "left",
+      "time_ms": 3800,
+      "votes": 8,
+      "peak": 127
+    },
+    {
+      "label": "go",
+      "time_ms": 5400,
+      "votes": 8,
+      "peak": 127
+    },
+    {
+      "label": "go",
+      "time_ms": 7000,
+      "votes": 8,
+      "peak": 91
+    },
+    {
+      "label": "right",
+      "time_ms": 8800,
+      "votes": 7,
+      "peak": 127
+    },
+    {
+      "label": "on",
+      "time_ms": 10700,
+      "votes": 8,
+      "peak": 103
+    },
+    {
+      "label": "off",
+      "time_ms": 12000,
+      "votes": 8,
+      "peak": 127
+    },
+    {
+      "label": "stop",
+      "time_ms": 13900,
+      "votes": 4,
+      "peak": 67
+    },
+    {
+      "label": "yes",
+      "time_ms": 15500,
+      "votes": 9,
+      "peak": 127
+    },
+    {
+      "label": "no",
+      "time_ms": 17300,
+      "votes": 6,
+      "peak": 77
+    },
+    {
+      "label": "up",
+      "time_ms": 18600,
+      "votes": 7,
+      "peak": 66
+    },
+    {
+      "label": "down",
+      "time_ms": 20400,
+      "votes": 8,
+      "peak": 127
+    }
+  ],
+  "duplicate_events": 0,
+  "missing_events": 0,
+  "wrong_events": 0,
+  "deadline_misses": 0,
+  "max_job_cycles": 443076,
+  "frame_budget_cycles": 10260000,
+  "max_network_cycles": 158,
+  "max_feature_cycles": 138,
+  "audio_dma_irqs": 1090,
+  "weight_dma_irqs": 0,
+  "twiddle_restore_irqs": 0,
+  "twiddle_crc_checks": 0,
+  "mfcc_calls": 0,
+  "calibration_calls": 0,
+  "busy_cycles": 21546145,
+  "feature_vs_float_mae": 0.0,
+  "feature_vs_float_max": 0,
+  "all_snapshots_preserved_previous48": true,
+  "all_inference_scores_match_golden": true,
+  "timeline": "accelerated causal event-driven: 20ms arrivals and100ms inference; idle cycles omitted, job deadlines checked at configured513MHz; not physical SPORT/timer pacing"
+}

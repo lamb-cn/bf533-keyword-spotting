@@ -1,0 +1,13 @@
+{
+  "mode": "Control",
+  "state": "Passed",
+  "parentPid": 66432,
+  "runnerPid": 81068,
+  "startedUtc": "2026-11-01T07:48:47.5078416Z",
+  "elfSha256": "BDE33725126C48FEA28F5893982090AC92112F35C993E0810C4D39D2C029D3DE",
+  "imageSha256": "98495D2038B917C4D14FEEFF030551D49D630DF98DB276B186952A2B9829854A",
+  "runnerStartedUtc": "2026-11-01T07:48:51.7978044Z",
+  "heartbeatUtc": "2026-11-01T07:58:22.0354667Z",
+  "runnerExitCode": 0,
+  "completedUtc": "2026-11-01T07:58:30.2559262Z"
+}

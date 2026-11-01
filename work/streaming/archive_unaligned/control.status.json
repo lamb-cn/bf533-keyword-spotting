@@ -1,0 +1,13 @@
+{
+  "mode": "Control",
+  "state": "Failed",
+  "parentPid": 73652,
+  "runnerPid": 81252,
+  "startedUtc": "2026-11-01T06:39:00.2463882Z",
+  "elfSha256": "4CC2C9049DD384136EBCA3FA9060FE00E9F9B9D21F6F6D38364448EA5CBDA22D",
+  "imageSha256": "98495D2038B917C4D14FEEFF030551D49D630DF98DB276B186952A2B9829854A",
+  "heartbeatUtc": "2026-11-01T07:39:05.2650733Z",
+  "runnerExitCode": 0,
+  "error": "Runner failed or no completion dump",
+  "completedUtc": "2026-11-01T07:39:09.3163911Z"
+}

@@ -1,0 +1,26 @@
+{
+  "pid": 82144,
+  "read_only": true,
+  "observed_utc": "2026-11-01T14:10:07.662520+00:00",
+  "host_header_addresses": [
+    71411512
+  ],
+  "snapshots": [
+    {
+      "completed_blocks": 464,
+      "new_features": 464,
+      "inferences": 92,
+      "actual_network_calls": 92,
+      "events": 5,
+      "errors": 0,
+      "max_job_cycles": 3697997,
+      "deadline_misses": 0,
+      "feature_fft_calls": 259,
+      "silence_shortcuts": 205,
+      "twiddle_crc_checks": 92,
+      "weight_irq_live": 920,
+      "audio_irq_live": 465
+    }
+  ],
+  "acceptance_evidence": false
+}

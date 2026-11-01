@@ -1,0 +1,109 @@
+{
+  "sample_rate": 16000,
+  "samples": 348800,
+  "duration_seconds": 21.8,
+  "blocks": 1090,
+  "inferences": 218,
+  "sequence": [
+    "go",
+    "left",
+    "go",
+    "go",
+    "right",
+    "on",
+    "off",
+    "stop",
+    "yes",
+    "no",
+    "up",
+    "down"
+  ],
+  "events": [
+    {
+      "label": "go",
+      "file": "data\\speech_commands_test_small\\go\\0cb74144_nohash_2.wav",
+      "start_sample": 16000,
+      "end_sample": 32000,
+      "sha256": "d6aa71388957d85ecd9bbac9db6bbfaeefb241881b0123622c126387f70ff875"
+    },
+    {
+      "label": "left",
+      "file": "data\\speech_commands_test_small\\left\\0cb74144_nohash_2.wav",
+      "start_sample": 42400,
+      "end_sample": 58400,
+      "sha256": "d655cc09599d9867128aa5cbe6e8ca928166ec34b617b1ea1e29a1163b64fa55"
+    },
+    {
+      "label": "go",
+      "file": "data\\speech_commands_test_small\\go\\0cb74144_nohash_2.wav",
+      "start_sample": 68800,
+      "end_sample": 84800,
+      "sha256": "d6aa71388957d85ecd9bbac9db6bbfaeefb241881b0123622c126387f70ff875"
+    },
+    {
+      "label": "go",
+      "file": "data\\speech_commands_test_small\\go\\0cb74144_nohash_2.wav",
+      "start_sample": 95200,
+      "end_sample": 111200,
+      "sha256": "d6aa71388957d85ecd9bbac9db6bbfaeefb241881b0123622c126387f70ff875"
+    },
+    {
+      "label": "right",
+      "file": "data\\speech_commands_test_small\\right\\0cb74144_nohash_2.wav",
+      "start_sample": 121600,
+      "end_sample": 137600,
+      "sha256": "ed66ce1fc6150c60d8e2354af6908461a7efcd4c21283f2af114d48053a97b21"
+    },
+    {
+      "label": "on",
+      "file": "data\\speech_commands_test_small\\on\\0cb74144_nohash_2.wav",
+      "start_sample": 148000,
+      "end_sample": 164000,
+      "sha256": "7753c5479c7a0938c867a48a602bd0a1252e3ae1b8011d68e3c76183d3d8acb4"
+    },
+    {
+      "label": "off",
+      "file": "data\\speech_commands_test_small\\off\\0cb74144_nohash_2.wav",
+      "start_sample": 174400,
+      "end_sample": 190400,
+      "sha256": "f6094e5aa55ed13ae995a1c95803e78e8026415625c9240dd5ff1e8184655fcc"
+    },
+    {
+      "label": "stop",
+      "file": "data\\speech_commands_test_small\\stop\\3659fc1c_nohash_1.wav",
+      "start_sample": 200800,
+      "end_sample": 216800,
+      "sha256": "fe3ae7607e96a3f004840a19c0b9c57b81703040dff6acb2066479102c251f59"
+    },
+    {
+      "label": "yes",
+      "file": "data\\speech_commands_test_small\\yes\\0cb74144_nohash_2.wav",
+      "start_sample": 227200,
+      "end_sample": 243200,
+      "sha256": "116e0d860390cf139fe8ea845e93e8bfdae6169be4fdf1f6fb7797300aa3e10b"
+    },
+    {
+      "label": "no",
+      "file": "data\\speech_commands_test_small\\no\\03401e93_nohash_3.wav",
+      "start_sample": 253600,
+      "end_sample": 269600,
+      "sha256": "dfaad0e21b3f6cb6fa59641b84c5b1647efad9333709e16da512fe386f172734"
+    },
+    {
+      "label": "up",
+      "file": "data\\speech_commands_test_small\\up\\0cb74144_nohash_2.wav",
+      "start_sample": 280000,
+      "end_sample": 296000,
+      "sha256": "881a2c08ed532f9b810dab817d8305c61c6be83e8df58b60e7b3f5452d664ad0"
+    },
+    {
+      "label": "down",
+      "file": "data\\speech_commands_test_small\\down\\0cb74144_nohash_2.wav",
+      "start_sample": 306400,
+      "end_sample": 322400,
+      "sha256": "0f597eeee7e041f56c03167bf76e6336588842ff00f20f5de824487a2b5e416b"
+    }
+  ],
+  "selection": "First filename-sorted source per class, no prediction filtering",
+  "sha256": "a3ae6ca87bea7767d69d974bd06f777079872e88edf92ef1cd6e651a91853c05"
+}

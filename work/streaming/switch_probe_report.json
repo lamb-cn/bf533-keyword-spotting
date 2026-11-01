@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "scope": "single nonzero PCM frame, MFCC -> real full CNN -> DMA twiddle restoration -> same MFCC",
+  "errors": 0,
+  "native_network_calls": 1,
+  "twiddle_restore_irqs": 1,
+  "actual_mfcc_calls": 2,
+  "twiddle_crc_checks": 1,
+  "whole_stream_acceptance": false
+}
