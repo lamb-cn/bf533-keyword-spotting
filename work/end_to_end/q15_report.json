@@ -1,0 +1,115 @@
+{
+  "audio": "data\\speech_commands_test_small\\go\\0cb74144_nohash_2.wav",
+  "scores": [
+    -128,
+    -70,
+    -128,
+    -32,
+    -106,
+    -93,
+    -66,
+    -128,
+    -122,
+    -38,
+    26,
+    -31
+  ],
+  "host_predicted": "stop",
+  "weight_irqs": 10,
+  "audio_irqs": 49,
+  "weight_wait_cycles": 2961,
+  "audio_wait_cycles": 2550,
+  "mfcc_cycles": 7441413,
+  "conv_region_cycles": 3051834,
+  "total_cycles": 10574527,
+  "pool_cycles": 61471,
+  "layer_cycles": [
+    351935,
+    207139,
+    401805,
+    207139,
+    401805,
+    207139,
+    401805,
+    207139,
+    401805,
+    693
+  ],
+  "prefetch_overlap": [
+    {
+      "transfer": 1,
+      "cycles": 639,
+      "dma_start": 7467578,
+      "dma_done": 7468272,
+      "compute_start": 7467633,
+      "compute_end": 7819568
+    },
+    {
+      "transfer": 2,
+      "cycles": 4159,
+      "dma_start": 7848564,
+      "dma_done": 7852778,
+      "compute_start": 7848619,
+      "compute_end": 8055758
+    },
+    {
+      "transfer": 3,
+      "cycles": 638,
+      "dma_start": 8084754,
+      "dma_done": 8085447,
+      "compute_start": 8084809,
+      "compute_end": 8486614
+    },
+    {
+      "transfer": 4,
+      "cycles": 4159,
+      "dma_start": 8515610,
+      "dma_done": 8519824,
+      "compute_start": 8515665,
+      "compute_end": 8722804
+    },
+    {
+      "transfer": 5,
+      "cycles": 638,
+      "dma_start": 8751800,
+      "dma_done": 8752493,
+      "compute_start": 8751855,
+      "compute_end": 9153660
+    },
+    {
+      "transfer": 6,
+      "cycles": 4159,
+      "dma_start": 9182656,
+      "dma_done": 9186870,
+      "compute_start": 9182711,
+      "compute_end": 9389850
+    },
+    {
+      "transfer": 7,
+      "cycles": 638,
+      "dma_start": 9418846,
+      "dma_done": 9419539,
+      "compute_start": 9418901,
+      "compute_end": 9820706
+    },
+    {
+      "transfer": 8,
+      "cycles": 4159,
+      "dma_start": 9849702,
+      "dma_done": 9853916,
+      "compute_start": 9849757,
+      "compute_end": 10056896
+    },
+    {
+      "transfer": 9,
+      "cycles": 830,
+      "dma_start": 10085892,
+      "dma_done": 10086777,
+      "compute_start": 10085947,
+      "compute_end": 10487752
+    }
+  ],
+  "mfcc_vs_float_mae": 7.373469387755102,
+  "mfcc_vs_float_max": 69,
+  "verified_network_outputs": 72076
+}

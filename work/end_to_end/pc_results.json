@@ -1,0 +1,1202 @@
+[
+  {
+    "file": "data\\speech_commands_test_small\\_silence_\\1127.wav",
+    "label": "_silence_",
+    "predicted": "stop",
+    "correct": false,
+    "scores": [
+      -128,
+      -75,
+      -54,
+      -128,
+      -11,
+      -86,
+      2,
+      -111,
+      -71,
+      16,
+      22,
+      -96
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\_silence_\\1849.wav",
+    "label": "_silence_",
+    "predicted": "right",
+    "correct": false,
+    "scores": [
+      -128,
+      -82,
+      -10,
+      -82,
+      -30,
+      -44,
+      -3,
+      37,
+      -51,
+      -23,
+      -63,
+      -67
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\_silence_\\3571.wav",
+    "label": "_silence_",
+    "predicted": "right",
+    "correct": false,
+    "scores": [
+      -128,
+      -88,
+      -49,
+      -70,
+      -91,
+      -44,
+      -54,
+      22,
+      -86,
+      7,
+      -77,
+      -35
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\_silence_\\4664.wav",
+    "label": "_silence_",
+    "predicted": "right",
+    "correct": false,
+    "scores": [
+      -75,
+      -19,
+      -34,
+      -46,
+      -57,
+      -9,
+      -35,
+      3,
+      -57,
+      -43,
+      -29,
+      -31
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\_silence_\\617.wav",
+    "label": "_silence_",
+    "predicted": "_silence_",
+    "correct": true,
+    "scores": [
+      63,
+      -21,
+      -32,
+      -22,
+      -17,
+      -29,
+      -16,
+      -8,
+      -33,
+      -35,
+      -25,
+      -23
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\_unknown_\\bird_0fa1e7a9_nohash_0.wav.wav",
+    "label": "_unknown_",
+    "predicted": "_unknown_",
+    "correct": true,
+    "scores": [
+      -128,
+      102,
+      -105,
+      -91,
+      -74,
+      -114,
+      -62,
+      -44,
+      -6,
+      -65,
+      -103,
+      -108
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\_unknown_\\eight_e49428d9_nohash_1.wav.wav",
+    "label": "_unknown_",
+    "predicted": "on",
+    "correct": false,
+    "scores": [
+      -128,
+      13,
+      -114,
+      -69,
+      -47,
+      -72,
+      -73,
+      -6,
+      45,
+      -45,
+      -128,
+      -77
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\_unknown_\\five_893705bb_nohash_8.wav.wav",
+    "label": "_unknown_",
+    "predicted": "_unknown_",
+    "correct": true,
+    "scores": [
+      -128,
+      21,
+      -128,
+      -47,
+      -103,
+      -65,
+      -71,
+      11,
+      8,
+      -86,
+      -33,
+      -92
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\_unknown_\\one_27c30960_nohash_1.wav.wav",
+    "label": "_unknown_",
+    "predicted": "_unknown_",
+    "correct": true,
+    "scores": [
+      -128,
+      105,
+      -47,
+      -48,
+      -92,
+      -80,
+      9,
+      -70,
+      -41,
+      -128,
+      -79,
+      -128
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\_unknown_\\one_8fe52b97_nohash_0.wav.wav",
+    "label": "_unknown_",
+    "predicted": "_unknown_",
+    "correct": true,
+    "scores": [
+      -128,
+      85,
+      -62,
+      -63,
+      -128,
+      -47,
+      -42,
+      -64,
+      12,
+      -128,
+      -128,
+      -124
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\down\\0cb74144_nohash_2.wav",
+    "label": "down",
+    "predicted": "down",
+    "correct": true,
+    "scores": [
+      -128,
+      -38,
+      -110,
+      -128,
+      -128,
+      124,
+      -101,
+      -128,
+      -9,
+      -128,
+      -11,
+      -95
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\down\\3659fc1c_nohash_1.wav",
+    "label": "down",
+    "predicted": "left",
+    "correct": false,
+    "scores": [
+      -128,
+      -46,
+      -72,
+      -53,
+      -59,
+      -44,
+      3,
+      -45,
+      -71,
+      -102,
+      -36,
+      -48
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\down\\b97c9f77_nohash_1.wav",
+    "label": "down",
+    "predicted": "down",
+    "correct": true,
+    "scores": [
+      -128,
+      -128,
+      -128,
+      -70,
+      -128,
+      127,
+      -60,
+      -74,
+      -75,
+      -128,
+      -49,
+      -127
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\down\\bb05582b_nohash_2.wav",
+    "label": "down",
+    "predicted": "down",
+    "correct": true,
+    "scores": [
+      -128,
+      -10,
+      -128,
+      -23,
+      -128,
+      120,
+      -63,
+      -124,
+      -45,
+      -128,
+      -122,
+      -83
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\down\\e49428d9_nohash_3.wav",
+    "label": "down",
+    "predicted": "no",
+    "correct": false,
+    "scores": [
+      -128,
+      -1,
+      -90,
+      23,
+      -128,
+      0,
+      -52,
+      -85,
+      -60,
+      -126,
+      -85,
+      -101
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\go\\0cb74144_nohash_2.wav",
+    "label": "go",
+    "predicted": "go",
+    "correct": true,
+    "scores": [
+      -128,
+      -112,
+      -115,
+      7,
+      -82,
+      -28,
+      -94,
+      -98,
+      -104,
+      -77,
+      -29,
+      68
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\go\\5828dfa2_nohash_1.wav",
+    "label": "go",
+    "predicted": "go",
+    "correct": true,
+    "scores": [
+      -128,
+      -3,
+      -128,
+      -72,
+      -30,
+      -68,
+      -110,
+      -70,
+      -128,
+      -54,
+      -48,
+      35
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\go\\b97c9f77_nohash_1.wav",
+    "label": "go",
+    "predicted": "go",
+    "correct": true,
+    "scores": [
+      -128,
+      -57,
+      -128,
+      -7,
+      -73,
+      -93,
+      -128,
+      -87,
+      -102,
+      -82,
+      -105,
+      119
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\go\\bb05582b_nohash_2.wav",
+    "label": "go",
+    "predicted": "no",
+    "correct": false,
+    "scores": [
+      -128,
+      -7,
+      -126,
+      42,
+      -128,
+      -24,
+      -128,
+      -97,
+      -63,
+      -127,
+      -128,
+      36
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\go\\e49428d9_nohash_3.wav",
+    "label": "go",
+    "predicted": "go",
+    "correct": true,
+    "scores": [
+      -128,
+      -46,
+      -128,
+      -33,
+      -26,
+      -92,
+      -114,
+      -70,
+      -114,
+      -77,
+      -18,
+      65
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\left\\0cb74144_nohash_2.wav",
+    "label": "left",
+    "predicted": "left",
+    "correct": true,
+    "scores": [
+      -128,
+      -97,
+      -53,
+      -79,
+      2,
+      -128,
+      117,
+      -115,
+      -73,
+      -4,
+      -58,
+      -116
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\left\\692a88e6_nohash_5.wav",
+    "label": "left",
+    "predicted": "left",
+    "correct": true,
+    "scores": [
+      -128,
+      -59,
+      -66,
+      -82,
+      -99,
+      -128,
+      127,
+      -35,
+      -128,
+      -81,
+      -93,
+      -128
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\left\\b97c9f77_nohash_1.wav",
+    "label": "left",
+    "predicted": "left",
+    "correct": true,
+    "scores": [
+      -128,
+      -23,
+      -65,
+      -106,
+      -107,
+      -62,
+      127,
+      -40,
+      -117,
+      -117,
+      -120,
+      -128
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\left\\bb05582b_nohash_2.wav",
+    "label": "left",
+    "predicted": "left",
+    "correct": true,
+    "scores": [
+      -128,
+      -59,
+      -43,
+      -80,
+      -101,
+      -111,
+      127,
+      -66,
+      -117,
+      -70,
+      -102,
+      -128
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\left\\ffa76c4a_nohash_1.wav",
+    "label": "left",
+    "predicted": "left",
+    "correct": true,
+    "scores": [
+      -128,
+      9,
+      -16,
+      -82,
+      -103,
+      -108,
+      127,
+      -58,
+      -110,
+      -93,
+      -114,
+      -128
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\no\\03401e93_nohash_3.wav",
+    "label": "no",
+    "predicted": "no",
+    "correct": true,
+    "scores": [
+      -128,
+      -70,
+      -3,
+      56,
+      -95,
+      -58,
+      -34,
+      -128,
+      -128,
+      -120,
+      -43,
+      -118
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\no\\0cb74144_nohash_2.wav",
+    "label": "no",
+    "predicted": "no",
+    "correct": true,
+    "scores": [
+      -128,
+      -15,
+      -118,
+      49,
+      -128,
+      4,
+      -128,
+      -84,
+      -112,
+      -128,
+      -128,
+      31
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\no\\b97c9f77_nohash_1.wav",
+    "label": "no",
+    "predicted": "no",
+    "correct": true,
+    "scores": [
+      -128,
+      -65,
+      -48,
+      127,
+      -128,
+      -3,
+      -93,
+      -97,
+      -128,
+      -128,
+      -128,
+      -65
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\no\\bb05582b_nohash_2.wav",
+    "label": "no",
+    "predicted": "no",
+    "correct": true,
+    "scores": [
+      -128,
+      -40,
+      -49,
+      92,
+      -128,
+      -52,
+      -74,
+      -126,
+      -128,
+      -104,
+      -112,
+      -7
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\no\\e49428d9_nohash_3.wav",
+    "label": "no",
+    "predicted": "no",
+    "correct": true,
+    "scores": [
+      -128,
+      -74,
+      -72,
+      127,
+      -128,
+      -87,
+      -79,
+      -128,
+      -128,
+      -128,
+      -85,
+      -17
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\off\\0cb74144_nohash_2.wav",
+    "label": "off",
+    "predicted": "off",
+    "correct": true,
+    "scores": [
+      -128,
+      -128,
+      -113,
+      -112,
+      -72,
+      -77,
+      -82,
+      -128,
+      7,
+      127,
+      -91,
+      -95
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\off\\3659fc1c_nohash_1.wav",
+    "label": "off",
+    "predicted": "up",
+    "correct": false,
+    "scores": [
+      -128,
+      -75,
+      -113,
+      -86,
+      64,
+      -84,
+      -63,
+      -92,
+      0,
+      -7,
+      2,
+      -66
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\off\\84d1e469_nohash_3.wav",
+    "label": "off",
+    "predicted": "off",
+    "correct": true,
+    "scores": [
+      -128,
+      -74,
+      -77,
+      -84,
+      -19,
+      -94,
+      -54,
+      -92,
+      -18,
+      116,
+      -71,
+      -48
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\off\\b97c9f77_nohash_1.wav",
+    "label": "off",
+    "predicted": "left",
+    "correct": false,
+    "scores": [
+      -128,
+      -22,
+      -58,
+      -49,
+      -14,
+      -61,
+      -8,
+      -21,
+      -56,
+      -98,
+      -85,
+      -109
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\off\\ffa76c4a_nohash_1.wav",
+    "label": "off",
+    "predicted": "off",
+    "correct": true,
+    "scores": [
+      -128,
+      -92,
+      -92,
+      -65,
+      -66,
+      -128,
+      -95,
+      -110,
+      -65,
+      127,
+      -94,
+      -23
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\on\\0cb74144_nohash_2.wav",
+    "label": "on",
+    "predicted": "on",
+    "correct": true,
+    "scores": [
+      -128,
+      -64,
+      -88,
+      -105,
+      -59,
+      -31,
+      -66,
+      -104,
+      85,
+      -24,
+      -122,
+      -88
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\on\\b97c9f77_nohash_1.wav",
+    "label": "on",
+    "predicted": "on",
+    "correct": true,
+    "scores": [
+      -128,
+      -108,
+      -128,
+      -119,
+      -49,
+      -55,
+      -63,
+      -82,
+      127,
+      21,
+      -128,
+      -128
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\on\\bb05582b_nohash_2.wav",
+    "label": "on",
+    "predicted": "_unknown_",
+    "correct": false,
+    "scores": [
+      -128,
+      99,
+      -72,
+      -108,
+      -93,
+      -41,
+      -66,
+      -65,
+      32,
+      -67,
+      -81,
+      -124
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\on\\d0faf7e4_nohash_4.wav",
+    "label": "on",
+    "predicted": "on",
+    "correct": true,
+    "scores": [
+      -128,
+      -64,
+      -100,
+      -48,
+      -61,
+      -33,
+      -100,
+      -122,
+      93,
+      3,
+      -113,
+      -67
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\on\\e49428d9_nohash_3.wav",
+    "label": "on",
+    "predicted": "on",
+    "correct": true,
+    "scores": [
+      -128,
+      -89,
+      -128,
+      -78,
+      -1,
+      -105,
+      -68,
+      -53,
+      127,
+      10,
+      -128,
+      -95
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\right\\0cb74144_nohash_2.wav",
+    "label": "right",
+    "predicted": "right",
+    "correct": true,
+    "scores": [
+      -128,
+      -3,
+      -109,
+      -76,
+      -71,
+      -95,
+      -18,
+      113,
+      -57,
+      -96,
+      -105,
+      -80
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\right\\b97c9f77_nohash_1.wav",
+    "label": "right",
+    "predicted": "right",
+    "correct": true,
+    "scores": [
+      -128,
+      35,
+      -128,
+      -113,
+      -116,
+      -61,
+      -44,
+      127,
+      -72,
+      -128,
+      -115,
+      -76
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\right\\bb05582b_nohash_2.wav",
+    "label": "right",
+    "predicted": "right",
+    "correct": true,
+    "scores": [
+      -128,
+      41,
+      -99,
+      -64,
+      -128,
+      -103,
+      30,
+      121,
+      -110,
+      -124,
+      -128,
+      -128
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\right\\d0faf7e4_nohash_4.wav",
+    "label": "right",
+    "predicted": "right",
+    "correct": true,
+    "scores": [
+      -128,
+      23,
+      -128,
+      -90,
+      -96,
+      -81,
+      -73,
+      84,
+      -25,
+      -98,
+      -109,
+      -84
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\right\\e49428d9_nohash_3.wav",
+    "label": "right",
+    "predicted": "right",
+    "correct": true,
+    "scores": [
+      -128,
+      -28,
+      -98,
+      -35,
+      -75,
+      -71,
+      -9,
+      127,
+      -46,
+      -90,
+      -96,
+      -69
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\stop\\3659fc1c_nohash_1.wav",
+    "label": "stop",
+    "predicted": "stop",
+    "correct": true,
+    "scores": [
+      -109,
+      -79,
+      -99,
+      -75,
+      13,
+      -58,
+      -66,
+      -83,
+      -21,
+      -25,
+      21,
+      -52
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\stop\\b97c9f77_nohash_1.wav",
+    "label": "stop",
+    "predicted": "stop",
+    "correct": true,
+    "scores": [
+      -128,
+      -79,
+      -128,
+      -72,
+      -61,
+      -58,
+      -34,
+      -119,
+      -128,
+      -90,
+      108,
+      -63
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\stop\\bb05582b_nohash_2.wav",
+    "label": "stop",
+    "predicted": "stop",
+    "correct": true,
+    "scores": [
+      -128,
+      -15,
+      -128,
+      -128,
+      -35,
+      -78,
+      -12,
+      -56,
+      -128,
+      -87,
+      65,
+      -92
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\stop\\c7dc7278_nohash_3.wav",
+    "label": "stop",
+    "predicted": "stop",
+    "correct": true,
+    "scores": [
+      -128,
+      -105,
+      -128,
+      -63,
+      -61,
+      -71,
+      -23,
+      -128,
+      -128,
+      -128,
+      127,
+      -101
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\stop\\ffa76c4a_nohash_1.wav",
+    "label": "stop",
+    "predicted": "stop",
+    "correct": true,
+    "scores": [
+      -128,
+      -72,
+      -122,
+      -93,
+      -58,
+      -82,
+      -22,
+      -95,
+      -128,
+      -55,
+      127,
+      -69
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\up\\0cb74144_nohash_2.wav",
+    "label": "up",
+    "predicted": "up",
+    "correct": true,
+    "scores": [
+      -128,
+      -128,
+      -64,
+      -93,
+      42,
+      -80,
+      -57,
+      -74,
+      -31,
+      13,
+      -55,
+      -71
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\up\\b97c9f77_nohash_1.wav",
+    "label": "up",
+    "predicted": "up",
+    "correct": true,
+    "scores": [
+      -128,
+      -74,
+      -111,
+      -90,
+      112,
+      -109,
+      -57,
+      -77,
+      -75,
+      -73,
+      -47,
+      -59
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\up\\bb05582b_nohash_2.wav",
+    "label": "up",
+    "predicted": "_unknown_",
+    "correct": false,
+    "scores": [
+      -128,
+      79,
+      -49,
+      -114,
+      -29,
+      -96,
+      -32,
+      -40,
+      -95,
+      -57,
+      -69,
+      -83
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\up\\c7dc7278_nohash_3.wav",
+    "label": "up",
+    "predicted": "stop",
+    "correct": false,
+    "scores": [
+      -128,
+      -13,
+      -112,
+      -114,
+      -30,
+      -13,
+      -63,
+      -98,
+      -84,
+      -96,
+      72,
+      -97
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\up\\d0faf7e4_nohash_4.wav",
+    "label": "up",
+    "predicted": "up",
+    "correct": true,
+    "scores": [
+      -128,
+      -66,
+      -110,
+      -100,
+      101,
+      -128,
+      -106,
+      -95,
+      -61,
+      25,
+      -22,
+      -70
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\yes\\0cb74144_nohash_2.wav",
+    "label": "yes",
+    "predicted": "yes",
+    "correct": true,
+    "scores": [
+      -128,
+      -76,
+      127,
+      -107,
+      -107,
+      -16,
+      -10,
+      -128,
+      -125,
+      -108,
+      -128,
+      -56
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\yes\\af7a8296_nohash_3.wav",
+    "label": "yes",
+    "predicted": "yes",
+    "correct": true,
+    "scores": [
+      -128,
+      -60,
+      127,
+      -18,
+      -86,
+      -32,
+      -3,
+      -95,
+      -110,
+      -105,
+      -99,
+      -65
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\yes\\b97c9f77_nohash_1.wav",
+    "label": "yes",
+    "predicted": "yes",
+    "correct": true,
+    "scores": [
+      -128,
+      -42,
+      127,
+      -118,
+      -86,
+      -47,
+      7,
+      -76,
+      -128,
+      -128,
+      -128,
+      -90
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\yes\\bb05582b_nohash_2.wav",
+    "label": "yes",
+    "predicted": "left",
+    "correct": false,
+    "scores": [
+      -128,
+      -67,
+      1,
+      -32,
+      -110,
+      -56,
+      100,
+      -46,
+      -85,
+      -70,
+      -117,
+      -120
+    ]
+  },
+  {
+    "file": "data\\speech_commands_test_small\\yes\\e49428d9_nohash_3.wav",
+    "label": "yes",
+    "predicted": "left",
+    "correct": false,
+    "scores": [
+      -128,
+      -26,
+      35,
+      -44,
+      -76,
+      -59,
+      80,
+      -64,
+      -98,
+      -62,
+      -67,
+      -125
+    ]
+  }
+]
