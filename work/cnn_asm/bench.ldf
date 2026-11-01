@@ -1,0 +1,4 @@
+#define STACK_SIZE 4096
+#define HEAP_SIZE 1024
+#define STACKHEAP_SIZE 5120
+#include "C:/Analog Devices/CrossCore Embedded Studio 2.10.0/Blackfin/ldf/ADSP-BF533.ldf"
