@@ -1,0 +1,3 @@
+"variant","macs","empty_cycles","call_cycles","net_cycles","cycles_per_mac","net_cycles_per_mac","macs_per_cycle","output_errors"
+"original","2080","20","2162","2142","1.039423","1.029808","0.962072","0"
+"split_banks","2080","20","1901","1881","0.913942","0.904327","1.094161","0"
