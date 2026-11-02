@@ -76,4 +76,3 @@ n = capture_read40(out40); /* 0无数据，40有新输出，-1故障 */
 - [BF533 EZ-KIT手册rev3.2](https://www.analog.com/media/en/technical-documentation/user-guides/ADSP-BF533_ezkit_man_rev.3.2.pdf)：Audio Interface、SW9/SW12、板级连接。
 - [ADI关于AD1836采样时钟的FAQ](https://ez.analog.com/other-products/a/documents/c/ad1836-faq/DO20331/ad1836-sampling-at-22-05khz-23512745)：MCLK/时钟模式共同决定实际采样率。
 - 本地`软硬件手册/ADSP-BF533_hwr_rev3.6.pdf`：DMA CONFIG图9-3（PDF页368）确认DI_SEL=1为行中断；PLL章节说明CCLK换算与bypass。
-
