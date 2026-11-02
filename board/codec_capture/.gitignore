@@ -1,0 +1,6 @@
+*.bin
+*.dxe
+*.doj
+*.log
+*.map.xml
+linker_log.xml

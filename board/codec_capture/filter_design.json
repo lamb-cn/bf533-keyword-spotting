@@ -1,0 +1,12 @@
+{
+  "input_rate": 48000,
+  "output_rate": 16000,
+  "taps": 63,
+  "cutoff_hz": 6000,
+  "kaiser_beta": 8,
+  "coefficient_sum": 32768,
+  "stopband_from_hz": 8000,
+  "quantized_max_stopband_db": -73.49428052635373,
+  "passband_to_hz": 4000,
+  "passband_min_db": -0.0009399361240664559
+}
