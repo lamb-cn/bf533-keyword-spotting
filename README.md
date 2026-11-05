@@ -24,6 +24,18 @@
 - 工具链：CrossCore Embedded Studio 2.10.0。
 - 验证：BF533单处理器仿真器
 
+## 仿真运行
+
+在仓库根目录使用 PowerShell 7 执行：
+
+```powershell
+.\work\end_to_end\run.ps1
+```
+
+脚本使用 CCES 2.10 的 BF533 单处理器仿真器，读取仓库内置音频和模型，运行 MFCC 和 CNN，再对照参考结果验证。需安装脚本所用的 Python 环境及 NumPy。
+
+长音频回放及完整 Native 流式仿真的命令见 [流式验证说明](work/streaming/流式验证说明.md)。
+
 ## 参考资料
 
 - [Arm ML-KWS-for-MCU](https://github.com/ARM-software/ML-KWS-for-MCU)
