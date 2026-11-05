@@ -12,3 +12,6 @@ symbols.txt
 *disassembly.txt
 linker_log.xml
 *.map.xml
+
+# Per-run simulator process state
+/work/streaming/*.status.json
