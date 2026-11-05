@@ -57,7 +57,11 @@ int stream_on_scores(StreamCore *s,unsigned t,const signed char scores[12],Strea
  if(t-s->start_ms>=300 && best>=2 && scores[best]>=0 && scores[best]-scores[runner]>=10){
   s->votes[best]++;if(scores[best]>s->peaks[best])s->peaks[best]=scores[best];
  }
+#ifdef STREAM_BOARD
+ if(t-s->last_voice_ms>=300){
+#else
  if(t-s->last_voice_ms>=600){
+#endif
   b=2;
   for(c=3;c<12;c++)if(s->votes[c]>s->votes[b] || (s->votes[c]==s->votes[b] && s->peaks[c]>s->peaks[b]))b=c;
   if(s->voiced_frames>=3 && s->votes[b]>=2){

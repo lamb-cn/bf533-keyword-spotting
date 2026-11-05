@@ -76,3 +76,46 @@ n = capture_read40(out40); /* 0无数据，40有新输出，-1故障 */
 - [BF533 EZ-KIT手册rev3.2](https://www.analog.com/media/en/technical-documentation/user-guides/ADSP-BF533_ezkit_man_rev.3.2.pdf)：Audio Interface、SW9/SW12、板级连接。
 - [ADI关于AD1836采样时钟的FAQ](https://ez.analog.com/other-products/a/documents/c/ad1836-faq/DO20331/ad1836-sampling-at-22-05khz-23512745)：MCLK/时钟模式共同决定实际采样率。
 - 本地`软硬件手册/ADSP-BF533_hwr_rev3.6.pdf`：DMA CONFIG图9-3（PDF页368）确认DI_SEL=1为行中断；PLL章节说明CCLK换算与bypass。
+
+## 实板关键词识别
+
+在 BF533 EZ-KIT Lite 接好 USB Debug Agent，并将 Windows 音频输出连到板卡输入后，在仓库根目录运行：
+
+```powershell
+.\board\codec_capture\run_recognize.ps1
+.\board\codec_capture\run_recognize.ps1 -Wav 'C:\path\to\test.wav'
+.\board\codec_capture\run_recognize.ps1 -BuildOnly
+```
+
+脚本经 CCES 将 DXE 加载到板上 RAM。默认循环播放仓库的 12 词测试录音。板卡从当前接线实测有信号的 slot 2 采集，运行 35 秒。测试结束时脚本读回板上事件并校验。默认录音要求结果覆盖至少一轮，且所有输出词与循环顺序相符。自定义 WAV 时检查是否检测到关键词。
+
+上板程序使用调试会话配置的 SDRAM，环形缓冲区位于 0x01600000。SPORT0 DMA 在 MFCC、CNN 和判决运行时继续接收。首次尝试中权重 MemDMA 未完成，因此本测试版本用 CPU 复制权重和恢复 FFT 表，异步权重搬运需单独上板验证。采集期间将事件记录到 RAM，结束后统一读回，以免调试器 I/O 打断音频采集。
+
+### LED 动作
+
+LED4–LED9 由 Flash A 的 Port B PB0–PB5 驱动，高电平点亮。板上每次确认关键词即写入新灯型，并保持到下一次识别。下表覆盖模型的全部十个命令。
+
+| 命令 | 点亮 |
+| --- | --- |
+| yes | LED4 |
+| no | LED5 |
+| up | LED6 |
+| down | LED7 |
+| left | LED8 |
+| right | LED9 |
+| on | 全亮 |
+| off | LED4、LED6、LED8 |
+| stop | LED5、LED7、LED9 |
+| go | LED4、LED9 |
+
+测试脚本在实板上逐事件核对 LED 输出寄存器。
+
+### 手动播放与持续识别
+
+```powershell
+.\board\codec_capture\run_listen.ps1
+```
+
+等待 CCES 连接并启动板卡，然后从 Windows 的耳机输出手动播放任意音频。脚本不播放录音，板卡持续采集并用 LED 显示最后一个识别结果。终端会保持调试会话，按 Ctrl+C 退出。该模式没有 35 秒限制，板上只保留最近 32 个事件。
+
+持续模式每次识别后也会在终端打印采集时间、单词和 LED 掩码。CCES 调试输出期间会短暂停采，打印结束后自动恢复。显示的时间按已采集的音频块累计。

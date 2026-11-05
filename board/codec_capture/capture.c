@@ -113,7 +113,8 @@ static int codec_init(void){
  *pSPI_CTL=0;*pDMA5_CONFIG=0;*pDMA5_IRQ_STATUS=3;
  *pSPI_FLG=FLS4;*pSPI_BAUD=64;*pSPI_CTL=3|SIZE|MSTR;
  *pDMA5_PERIPHERAL_MAP=0x5000;*pDMA5_START_ADDR=(void*)commands;
- *pDMA5_X_COUNT=11;*pDMA5_X_MODIFY=2;*pDMA5_CONFIG=WDSIZE_16|DMAEN;
+ /* DI_EN lets the polling loop observe DMA_DONE on BF533 hardware. */
+ *pDMA5_X_COUNT=11;*pDMA5_X_MODIFY=2;*pDMA5_CONFIG=WDSIZE_16|DI_EN|DMAEN;
  *pSPI_CTL|=SPE;ssync();t=ticks();
  while(!(*pDMA5_IRQ_STATUS&DMA_DONE)){
   if((*pDMA5_IRQ_STATUS&DMA_ERR) || ticks()-t>clock_hz/10)goto failed;

@@ -54,6 +54,10 @@ static void start_block(unsigned block){
  *pMDMA_S1_CONFIG=WDSIZE_32|DMAEN;ssync();
 }
 static void restore_twiddle(void){
+#ifdef STREAM_BOARD
+ stream_copy(scratch.mfcc.twiddle,TWIDDLE_BACKUP,4096);
+ twiddle_ready=twiddle_pending=1;
+#else
  stream_twiddle_active=1;twiddle_ready=0;twiddle_pending=1;
  *pMDMA_S0_CONFIG=0;*pMDMA_D0_CONFIG=0;*pMDMA_D0_IRQ_STATUS=3;
  *pMDMA_S0_START_ADDR=TWIDDLE_BACKUP;
@@ -62,6 +66,7 @@ static void restore_twiddle(void){
  *pMDMA_S0_X_MODIFY=4;*pMDMA_D0_X_MODIFY=4;ssync();
  *pMDMA_D0_CONFIG=WNR|WDSIZE_32|DI_EN|DMAEN;
  *pMDMA_S0_CONFIG=WDSIZE_32|DMAEN;ssync();
+#endif
 }
 static int check_twiddle(void){
  unsigned t=ticks();
@@ -104,7 +109,9 @@ static void write_header(int final){
  if(final)header[0]=0x600dcafe;
  stream_copy(STREAM_OUT,header,sizeof(header));
 }
-#ifndef STREAM_SWITCH_PROBE
+#ifdef STREAM_BOARD
+#include "../../board/codec_capture/recognize.c"
+#elif !defined(STREAM_SWITCH_PROBE)
 void main(void){
  unsigned block,slot,i,start,dt,time_ms,feature_cycles,before,after,old_head,nn_before,nn_start,nn_cycles,infer_idx=0;
  unsigned frame_record[8],infer_record[16];StreamEvent event;

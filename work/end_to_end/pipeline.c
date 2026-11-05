@@ -70,6 +70,10 @@ static void start_weight(unsigned i){
  unsigned slot=i&1;const Layer *l=layers+i;
  if(ws[slot]!=0){stats[1]++;return;}
  ws[slot]=1;wslot=slot;windex=i;
+#ifdef STREAM_BOARD
+ memcpy(weight[slot],(const void*)l->address,l->bytes);
+ ws[slot]=2;
+#else
  *pMDMA_S0_CONFIG=0;*pMDMA_D0_CONFIG=0;*pMDMA_D0_IRQ_STATUS=3;
  *pMDMA_S0_START_ADDR=(void*)l->address;*pMDMA_D0_START_ADDR=weight[slot];
  *pMDMA_S0_X_COUNT=l->bytes/4;*pMDMA_D0_X_COUNT=l->bytes/4;
@@ -77,6 +81,7 @@ static void start_weight(unsigned i){
  stats[20+i]=ticks();
  *pMDMA_D0_CONFIG=WNR|WDSIZE_32|DI_EN|DMAEN;
  *pMDMA_S0_CONFIG=WDSIZE_32|DMAEN;ssync();
+#endif
 }
 static void start_audio(unsigned i){
  unsigned slot=i&1;
