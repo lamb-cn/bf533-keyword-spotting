@@ -6,7 +6,12 @@
 #include "../mfcc_ops/frontend.h"
 #include "../cnn_asm/cnn_ops.h"
 #include "../cnn_asm/tail_ops.h"
+#ifdef STREAM_BOARD
+#include "../../board/codec_capture/model13.h"
+#else
 #include "model.h"
+#endif
+#include "../streaming/stream_core.h"
 #include "frontend32.h"
 /* Simulator-only reserved external memory map, loaded by runner.
  * On hardware these must be placed by the SDRAM linker/startup project. */
@@ -23,8 +28,8 @@ short patch[64];
 short weight[2][4100];
 #pragma section("L1_data_b")
 short audio[2][644];
-signed char features[490],pool[64],scores[12];
-int sums[64],fc_add[12];
+signed char features[490],pool[64],scores[STREAM_CLASSES];
+int sums[64],fc_add[STREAM_CLASSES];
 volatile unsigned stats[64];
 volatile unsigned ws[2],as[2],wslot,aslot,windex;
 #ifdef ACTIVATION_DMA
@@ -151,7 +156,7 @@ static void finish(void){
   if(audio[i][640]!=(short)0x1234 || audio[i][641]!=(short)0x7777)stats[1]++;
  }
  stats[0]=0x600dcafe;memcpy(EXPORT,(const void*)stats,256);
- memcpy(EXPORT+256,features,490);memcpy(EXPORT+73024,pool,64);memcpy(EXPORT+73088,scores,12);
+ memcpy(EXPORT+256,features,490);memcpy(EXPORT+73024,pool,64);memcpy(EXPORT+73088,scores,STREAM_CLASSES);
 }
 void main(void){
  unsigned i,j,t,total;

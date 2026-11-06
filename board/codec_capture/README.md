@@ -87,26 +87,23 @@ n = capture_read40(out40); /* 0无数据，40有新输出，-1故障 */
 .\board\codec_capture\run_recognize.ps1 -BuildOnly
 ```
 
-脚本经 CCES 将 DXE 加载到板上 RAM。默认循环播放仓库的 12 词测试录音。板卡从当前接线实测有信号的 slot 2 采集，运行 35 秒。测试结束时脚本读回板上事件并校验。默认录音要求结果覆盖至少一轮，且所有输出词与循环顺序相符。自定义 WAV 时检查是否检测到关键词。
+脚本经 CCES 将 DXE 加载到板上 RAM。默认从本地测试集生成并循环播放覆盖 11 个目标词的录音。构建依赖 Python 与 NumPy，可用 `-Python` 指定解释器。板卡从当前接线实测有信号的 slot 2 采集，运行 35 秒。测试结束时脚本读回板上事件并校验。默认录音要求结果覆盖至少一轮，且所有输出词与循环顺序相符。自定义 WAV 时检查是否检测到关键词。
 
 上板程序使用调试会话配置的 SDRAM，环形缓冲区位于 0x01600000。SPORT0 DMA 在 MFCC、CNN 和判决运行时继续接收。首次尝试中权重 MemDMA 未完成，因此本测试版本用 CPU 复制权重和恢复 FFT 表，异步权重搬运需单独上板验证。采集期间将事件记录到 RAM，结束后统一读回，以免调试器 I/O 打断音频采集。
 
 ### LED 动作
 
-LED4–LED9 由 Flash A 的 Port B PB0–PB5 驱动，高电平点亮。板上每次确认关键词即写入新灯型，并保持到下一次识别。下表覆盖模型的全部十个命令。
+LED4–LED9 由 Flash A 的 Port B PB0–PB5 驱动。确认关键词即更新灯型，保持到下一个命令。静音和非目标词不触发动作。
 
 | 命令 | 点亮 |
 | --- | --- |
-| yes | LED4 |
-| no | LED5 |
-| up | LED6 |
-| down | LED7 |
-| left | LED8 |
-| right | LED9 |
-| on | 全亮 |
-| off | LED4、LED6、LED8 |
-| stop | LED5、LED7、LED9 |
-| go | LED4、LED9 |
+| four、five、six、seven、eight、nine | 分别点亮 LED4、LED5、LED6、LED7、LED8、LED9 |
+| go | 全亮 |
+| stop | LED4、LED6、LED8 |
+| left | LED4–LED6 |
+| right | LED7–LED9 |
+| off | 全灭 |
+
 
 测试脚本在实板上逐事件核对 LED 输出寄存器。
 

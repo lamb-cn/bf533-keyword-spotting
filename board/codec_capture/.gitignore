@@ -4,3 +4,9 @@
 *.log
 *.map.xml
 linker_log.xml
+
+# Generated 13-class board model and regression audio
+/model13.h
+/fixture13.c
+/keywords13.wav
+/keywords13.json

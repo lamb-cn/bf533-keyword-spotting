@@ -1,6 +1,7 @@
 param(
  [string]$Wav,
  [string]$Cces = 'C:\Analog Devices\CrossCore Embedded Studio 2.10.0',
+ [string]$Python = 'C:\Users\lenovo\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe',
  [switch]$BuildOnly,
  [switch]$Listen
 )
@@ -8,12 +9,15 @@ $ErrorActionPreference = 'Stop'
 $root = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 $verifySequence = !$Wav
 if (!$Listen -and !$BuildOnly) {
- if (!$Wav) { $Wav = Join-Path $root 'work/streaming/long_keywords.wav' }
- $Wav = (Resolve-Path -LiteralPath $Wav).Path
+ if (!$Wav) { $Wav = Join-Path $root 'board/codec_capture/keywords13.wav' }
+ if (!$verifySequence) { $Wav = (Resolve-Path -LiteralPath $Wav).Path }
 }
 
 Push-Location $root
 try {
+ & $Python board/codec_capture/prepare_model.py
+ if ($LASTEXITCODE) { throw '13-class model preparation failed' }
+ $model = Get-Content board/codec_capture/keywords13.json -Raw | ConvertFrom-Json
  $dxe = 'board/codec_capture/recognize.dxe'
  $log = 'board/codec_capture/recognize.build.log'
  $defines = @('-DSTREAM_BOARD')
@@ -24,7 +28,7 @@ try {
  }
  $sources = @(
   'work/streaming/stream_target.c', 'work/streaming/stream_core.c',
-  'work/streaming/fixture_native.c', 'board/codec_capture/capture.c',
+  'board/codec_capture/fixture13.c', 'board/codec_capture/capture.c',
   'work/mfcc_ops/frontend.c', 'work/mfcc_ops/complete.c', 'work/mfcc_ops/tables.c',
   'work/mfcc_ops/dot.asm', 'work/mfcc_ops/dct.asm', 'work/mfcc_ops/window.asm',
   'work/mfcc_ops/quantize.asm', 'work/cnn_asm/cnn_ops.c', 'work/cnn_asm/tail_ops.c',
@@ -74,8 +78,8 @@ try {
  $bytes = [IO.File]::ReadAllBytes($dump)
  if ($bytes.Length -ne 944) { throw "Incomplete result dump at $dump" }
  $r = 0..235 | ForEach-Object { [BitConverter]::ToUInt32($bytes, $_ * 4) }
- $labels = '_silence_', '_unknown_', 'yes', 'no', 'up', 'down', 'left', 'right', 'on', 'off', 'stop', 'go'
- $patterns = 0,0,1,2,4,8,16,32,63,21,42,33
+ $labels = $model.labels
+ $patterns = $model.patterns
  $detected = for ($i = 0; $i -lt [Math]::Min($r[3], 32); $i++) {
   $j = 12 + $i * 4
   $led = $r[140 + $i]
@@ -89,7 +93,7 @@ try {
  }
  if (!$r[3]) { throw 'No keyword detected' }
  if ($verifySequence) {
-  $expected = (Get-Content -Raw 'work/streaming/manifest.json' | ConvertFrom-Json).sequence
+  $expected = $model.sequence
   $matched = $false
   if ($detected.Count -ge $expected.Count) {
    for ($phase = 0; $phase -lt $expected.Count; $phase++) {

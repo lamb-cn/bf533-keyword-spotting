@@ -43,17 +43,17 @@ void stream_on_audio(StreamCore *s,unsigned t,int voice){
  if(voice){
   if(!s->active){
    s->active=1;s->start_ms=t;s->voiced_frames=0;
-   for(c=0;c<12;c++){s->votes[c]=0;s->peaks[c]=-128;}
+   for(c=0;c<STREAM_CLASSES;c++){s->votes[c]=0;s->peaks[c]=-128;}
   }
   s->last_voice_ms=t;s->voiced_frames++;
  }
 }
-int stream_on_scores(StreamCore *s,unsigned t,const signed char scores[12],StreamEvent *e){
+int stream_on_scores(StreamCore *s,unsigned t,const signed char scores[STREAM_CLASSES],StreamEvent *e){
  unsigned c,best=0,runner,b;int emit=0;
  if(!s->active)return 0;
- for(c=1;c<12;c++)if(scores[c]>scores[best])best=c;
+ for(c=1;c<STREAM_CLASSES;c++)if(scores[c]>scores[best])best=c;
  runner=best==0?1:0;
- for(c=0;c<12;c++)if(c!=best && scores[c]>scores[runner])runner=c;
+ for(c=0;c<STREAM_CLASSES;c++)if(c!=best && scores[c]>scores[runner])runner=c;
  if(t-s->start_ms>=300 && best>=2 && scores[best]>=0 && scores[best]-scores[runner]>=10){
   s->votes[best]++;if(scores[best]>s->peaks[best])s->peaks[best]=scores[best];
  }
@@ -63,7 +63,7 @@ int stream_on_scores(StreamCore *s,unsigned t,const signed char scores[12],Strea
  if(t-s->last_voice_ms>=600){
 #endif
   b=2;
-  for(c=3;c<12;c++)if(s->votes[c]>s->votes[b] || (s->votes[c]==s->votes[b] && s->peaks[c]>s->peaks[b]))b=c;
+  for(c=3;c<STREAM_CLASSES;c++)if(s->votes[c]>s->votes[b] || (s->votes[c]==s->votes[b] && s->peaks[c]>s->peaks[b]))b=c;
   if(s->voiced_frames>=3 && s->votes[b]>=2){
    e->time_ms=t;e->label=b;e->votes=s->votes[b];e->peak=s->peaks[b];emit=1;
   }

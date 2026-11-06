@@ -4,7 +4,11 @@
 
 ## 识别目标
 
-10个英语关键词：`yes`、`no`、`up`、`down`、`left`、`right`、`on`、`off`、`stop`、`go`，另包含 `silence` 和 `unknown`，共12类输出。
+上板模型识别 `four`、`five`、`six`、`seven`、`eight`、`nine`、`go`、`stop`、`left`、`right`、`off`，另包含静音和非目标词，共 13 类。
+
+## 实时上板
+
+运行 `.\board\codec_capture\run_listen.ps1` 启动持续识别。启动脚本从 13 类 INT8 权重生成板上镜像。灯型和测试命令见 [上板说明](board/codec_capture/README.md)。
 
 ## 计算流程
 

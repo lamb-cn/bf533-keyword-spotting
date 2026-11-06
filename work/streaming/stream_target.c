@@ -95,7 +95,7 @@ static int infer_native(void){
  cnn_pool(scratch.act,pool);
  for(j=0;j<64;j++)scratch.act[j]=pool[j];
  if(!await(ws+1,4))return 0;
- cnn_fc(scratch.act,weight[1],layers[9].bias,scores,sums,fc_add);ws[1]=0;
+ cnn_fc_classes(scratch.act,weight[1],layers[9].bias,scores,sums,fc_add,STREAM_CLASSES);ws[1]=0;
  header[6]++;return 1;
 }
 static void write_header(int final){

@@ -9,7 +9,6 @@
 #define LED_MASK 0x3fu
 
 /* yes, no, up, down, left, right, on, off, stop, go */
-static const unsigned char led_patterns[12]={0,0,1,2,4,8,16,32,63,21,42,33};
 
 static void led_write(unsigned pattern){
  LED_DATA=(LED_DATA & ~LED_MASK) | pattern;
@@ -96,12 +95,9 @@ void main(void){
      board_result.events++;
 #ifdef BOARD_CONTINUOUS
      {
-      static const char *const names[12]={
-       "silence","unknown","yes","no","up","down","left","right","on","off","stop","go"
-      };
       /* Debug stdout halts the core while the host handles the write. */
       capture_stop();
-      printf("%u ms  %s  LED=0x%02X\n",event.time_ms,names[event.label],
+      printf("%u ms  %s  LED=0x%02X\n",event.time_ms,keyword_names[event.label],
              (unsigned)led_patterns[event.label]);
       fflush(stdout);
       if(capture_init(hz,BOARD_RAW,2)){board_result.fault=105;break;}
