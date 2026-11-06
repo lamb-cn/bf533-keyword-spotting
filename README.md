@@ -4,7 +4,7 @@
 
 ## 识别目标
 
-10个英语关键词：`yes`、`no`、`up`、`down`、`left`、`right`、`on`、`off`、`stop`、`go`，另包含 `silence` 和 `unknown`，共12类输出。
+13 类模型包含 `four`、`five`、`six`、`seven`、`eight`、`nine`、`go`、`stop`、`left`、`right`、`off`，以及静音和非目标词。
 
 ## 计算流程
 
@@ -30,11 +30,14 @@
 
 ```powershell
 .\work\end_to_end\run.ps1
+.\work\end_to_end\run.ps1 -Accuracy
 ```
 
 脚本使用 CCES 2.10 的 BF533 单处理器仿真器，读取仓库内置音频和模型，运行 MFCC 和 CNN，再对照参考结果验证。需安装脚本所用的 Python 环境及 NumPy。
 
-长音频回放及完整 Native 流式仿真的命令见 [流式验证说明](work/streaming/流式验证说明.md)。
+默认端到端入口使用全网微调后的 13 类 INT8 权重。`-Accuracy` 运行本地固定的 37 条样本，逐条核对板级定点卷积、池化和 FC 输出，统计仿真预测。样本来自官方测试划分，每个非静音类别随机抽取三条，另有一条数字静音。完整 5,298 条的训练侧定点评估见 [训练报告](work/kws13/finetune/report13.json)。
+
+历史长音频回放仍使用原 12 类模型；命令见 [流式验证说明](work/streaming/流式验证说明.md)。
 
 ## 参考资料
 

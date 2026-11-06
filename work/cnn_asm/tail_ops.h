@@ -13,4 +13,7 @@ void cnn_pool(const short *input,signed char *out);
 void cnn_fc_pack(const signed char *w,short *packed);
 void cnn_fc(const short *input,const short *packed,const signed char *bias,
             signed char *out,int *sums,int *add);
+/* Odd class counts require a zero-filled final weight row and an extra sum slot. */
+void cnn_fc_classes(const short *input,const short *packed,const signed char *bias,
+                    signed char *out,int *sums,int *add,int classes);
 #endif

@@ -1,10 +1,16 @@
 from pathlib import Path
 import numpy as np
-import wave,json,csv
+import os,wave,json,csv
 ROOT=Path(__file__).resolve().parents[2]
 P=Path(__file__).parent
 W=dict(np.load(P/'weights.npz'))
 LABELS=['_silence_','_unknown_','yes','no','up','down','left','right','on','off','stop','go']
+KWS13 = os.environ.get('BF533_KWS13') == '1'
+if KWS13:
+ model = ROOT/'work/kws13/finetune'
+ with np.load(model/'weights13.npz') as weights:
+  W = {k: weights[k].astype(np.int32) for k in weights.files}
+ LABELS = json.loads((model/'report13.json').read_text())['labels']
 def nearest(x):return np.sign(x)*np.floor(np.abs(x)+.5)
 mel=lambda f:1127*np.log1p(f/700)
 freq=mel(np.arange(512)*16000/1024)
@@ -32,7 +38,7 @@ def network(features,trace=False):
   x=quant(s,W[f'CONV{n}_DS_BIAS'],db,dr);layers.append(x.copy())
   x=quant(x.astype(np.int32)@W[f'CONV{n}_PW_WT'].reshape(64,64).T,W[f'CONV{n}_PW_BIAS'],pb,pr);layers.append(x.copy())
  pooled=np.trunc(x.astype(np.int32).sum((0,1))*4/125).astype(np.int8)
- scores=np.clip((W['FINAL_FC_WT'].reshape(12,64)@pooled.astype(np.int32)+W['FINAL_FC_BIAS']*4+64)>>7,-128,127).astype(np.int8)
+ scores=np.clip((W['FINAL_FC_WT'].reshape(len(LABELS),64)@pooled.astype(np.int32)+W['FINAL_FC_BIAS']*4+64)>>7,-128,127).astype(np.int8)
  return scores,layers,pooled
 def read_audio(path):
  with wave.open(str(path),'rb') as f:

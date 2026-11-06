@@ -6,7 +6,13 @@
 #include "../mfcc_ops/frontend.h"
 #include "../cnn_asm/cnn_ops.h"
 #include "../cnn_asm/tail_ops.h"
+#ifdef KWS13
+#include "model13.h"
+#define MODEL_CLASSES 13
+#else
 #include "model.h"
+#define MODEL_CLASSES 12
+#endif
 #include "frontend32.h"
 /* Simulator-only reserved external memory map, loaded by runner.
  * On hardware these must be placed by the SDRAM linker/startup project. */
@@ -23,8 +29,8 @@ short patch[64];
 short weight[2][4100];
 #pragma section("L1_data_b")
 short audio[2][644];
-signed char features[490],pool[64],scores[12];
-int sums[64],fc_add[12];
+signed char features[490],pool[64],scores[MODEL_CLASSES];
+int sums[64],fc_add[MODEL_CLASSES];
 volatile unsigned stats[64];
 volatile unsigned ws[2],as[2],wslot,aslot,windex;
 #ifdef ACTIVATION_DMA
@@ -146,7 +152,7 @@ static void finish(void){
   if(audio[i][640]!=(short)0x1234 || audio[i][641]!=(short)0x7777)stats[1]++;
  }
  stats[0]=0x600dcafe;memcpy(EXPORT,(const void*)stats,256);
- memcpy(EXPORT+256,features,490);memcpy(EXPORT+73024,pool,64);memcpy(EXPORT+73088,scores,12);
+ memcpy(EXPORT+256,features,490);memcpy(EXPORT+73024,pool,64);memcpy(EXPORT+73088,scores,MODEL_CLASSES);
 }
 void main(void){
  unsigned i,j,t,total;
@@ -215,7 +221,7 @@ void main(void){
 #endif
  if(!await(ws+1,4)){finish();return;}
  stats[49]=ticks();
- cnn_fc(scratch.act,weight[1],layers[9].bias,scores,sums,fc_add);
+ cnn_fc_classes(scratch.act,weight[1],layers[9].bias,scores,sums,fc_add,MODEL_CLASSES);
  stats[59]=ticks();stats[19]=stats[59]-stats[49];ws[1]=0;
  stats[8]=ticks()-total;
  if(stats[2]!=10)stats[1]++;

@@ -15,3 +15,10 @@ linker_log.xml
 
 # Per-run simulator process state
 /work/streaming/*.status.json
+
+# Generated 13-class simulator fixture and latest per-clip dump
+/work/end_to_end/image13.bin
+/work/end_to_end/model13.h
+/work/end_to_end/target13.bin
+/work/end_to_end/target_audio13.json
+/work/end_to_end/target_report13.json
