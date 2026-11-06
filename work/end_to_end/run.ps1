@@ -6,7 +6,7 @@ $cc='C:\Analog Devices\CrossCore Embedded Studio 2.10.0'
 Push-Location (Split-Path (Split-Path $PSScriptRoot -Parent) -Parent)
 try{
  $python='C:\Users\lenovo\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
- $folder='data/speech_commands_kws13_test'
+ $folder='data/speech_commands_test_small'
  $fixtures=if($Legacy){
   if($Accuracy){throw 'Accuracy mode requires the 13-class model'}
   @([pscustomobject]@{file=$null;label='go'})
