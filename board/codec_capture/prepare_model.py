@@ -9,11 +9,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 MODEL = ROOT / 'work/kws13/finetune'
 DATA = ROOT / 'data/speech_commands_test_small'
-PATTERNS = {
-    '_silence_': 0, '_unknown_': 0, 'four': 1, 'five': 2, 'six': 4,
-    'seven': 8, 'eight': 16, 'nine': 32, 'go': 63, 'stop': 21,
-    'left': 7, 'right': 56, 'off': 0,
-}
+COMMANDS = ('four', 'five', 'six', 'seven', 'eight', 'nine', 'go', 'stop', 'left', 'right', 'off')
 LAYERS = [
     ('CONV1', 0, 2, 6), ('CONV2_DS', 1, 2, 5), ('CONV2_PW', 2, 4, 8),
     ('CONV3_DS', 1, 2, 4), ('CONV3_PW', 2, 5, 8), ('CONV4_DS', 1, 3, 5),
@@ -24,11 +20,10 @@ LAYERS = [
 
 def main():
     labels = json.loads((MODEL / 'report13.json').read_text())['labels']
-    assert labels[:2] == ['_silence_', '_unknown_'] and set(labels) == PATTERNS.keys()
-    masks = [PATTERNS[label] for label in labels]
-    assert len(set(masks[2:])) == 11
+    assert labels[:2] == ['_silence_', '_unknown_'] and tuple(labels[2:]) == COMMANDS
+    actions = ['LED_NONE', 'LED_NONE'] + ['LED_' + word.upper() for word in COMMANDS]
     image = bytearray(65536)
-    header = ['typedef struct {unsigned address,bytes;int kind,bl,rs;signed char bias[64];} Layer;',
+    header = ['#include "led_actions.h"', 'typedef struct {unsigned address,bytes;int kind,bl,rs;signed char bias[64];} Layer;',
               'static const Layer layers[10]={']
     with np.load(MODEL / 'weights13.npz') as model:
         assert model['FINAL_FC_WT'].shape == (13, 64)
@@ -44,7 +39,7 @@ def main():
             bias = ','.join(map(str, model[name + '_BIAS']))
             header.append(f'{{0x{0x01000000+len(image):08x},{len(packed)},{kind},{bl},{rs},{{{bias}}}}},')
             image.extend(packed)
-    header += ['};', 'static const unsigned char led_patterns[13]={' + ','.join(map(str, masks)) + '};',
+    header += ['};', 'static const enum LedAction led_actions[13]={' + ','.join(actions) + '};',
                '#ifdef BOARD_CONTINUOUS',
                'static const char *const keyword_names[13]={' + ','.join(map(json.dumps, labels)) + '};',
                '#endif']
@@ -67,7 +62,7 @@ def main():
                 wav.writeframes(src.readframes(16000).ljust(32000, b'\0'))
             wav.writeframes(bytes(25600))
     (HERE / 'keywords13.json').write_text(json.dumps({
-        'labels': labels, 'patterns': masks, 'sequence': labels[2:],
+        'labels': labels, 'sequence': labels[2:],
     }) + '\n')
 
 

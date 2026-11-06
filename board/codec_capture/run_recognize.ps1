@@ -79,12 +79,27 @@ try {
  if ($bytes.Length -ne 944) { throw "Incomplete result dump at $dump" }
  $r = 0..235 | ForEach-Object { [BitConverter]::ToUInt32($bytes, $_ * 4) }
  $labels = $model.labels
- $patterns = $model.patterns
+ $selected = 0
+ $manualMask = 0
+ $digits = @("four", "five", "six", "seven", "eight", "nine")
  $detected = for ($i = 0; $i -lt [Math]::Min($r[3], 32); $i++) {
   $j = 12 + $i * 4
   $led = $r[140 + $i]
-  if ($led -ne $patterns[$r[$j+1]]) { throw "LED output readback mismatch for event $i" }
-  $labels[$r[$j+1]]
+  $word = $labels[$r[$j+1]]
+  $digit = [Array]::IndexOf($digits, $word)
+  if ($digit -ge 0) {
+   $selected = $digit
+   $manualMask = $manualMask -bxor (1 -shl $selected)
+  } elseif ($word -eq 'left' -or $word -eq 'right') {
+   $delta = if ($word -eq 'left') { 5 } else { 1 }
+   $selected = ($selected + $delta) % 6
+   $manualMask = $manualMask -bxor (1 -shl $selected)
+  } elseif ($word -eq 'off') {
+   $manualMask = 0
+  }
+  $expectedMask = if ($word -eq 'go') { 1 -shl $selected } else { $manualMask }
+  if ($led -ne $expectedMask) { throw "LED output readback mismatch for event $i ($word)" }
+  $word
  }
  Write-Output ("blocks={0} inference={1} events={2} fault={3} dma_errors={4} rows={5} overruns={6} pcm_peak={7} max_job_ms={8:F2} voiced_frames={9}" -f $r[1],$r[2],$r[3],$r[4],$r[5],$r[6],$r[7],$r[8],(1000.0*$r[9]/[Math]::Max(1,$r[10])),$r[11])
  Write-Output "Board result dump $dump"

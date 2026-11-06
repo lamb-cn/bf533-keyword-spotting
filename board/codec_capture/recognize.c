@@ -8,8 +8,6 @@
 #define LED_DIR (*(volatile unsigned char *)0x20270007u)
 #define LED_MASK 0x3fu
 
-/* yes, no, up, down, left, right, on, off, stop, go */
-
 static void led_write(unsigned pattern){
  LED_DATA=(LED_DATA & ~LED_MASK) | pattern;
  ssync();
@@ -27,6 +25,8 @@ void main(void){
  unsigned hz=capture_board_cclk(27000000u);
  int n, dc=0;
  short row[40];
+ LedState leds={0,0,0,0};
+ unsigned displayed=0;
 
  board_result.cclk=hz;
  if(capture_init(hz,BOARD_RAW,2)){board_result.fault=100;return;}
@@ -69,6 +69,10 @@ void main(void){
   }
   if(fill!=320)continue;
   start=ticks();fill=0;time_ms=(block+1)*20;
+  if(leds.running){
+   unsigned pattern=led_display(&leds,block);
+   if(pattern!=displayed){led_write(pattern);displayed=pattern;}
+  }
   if(block)stream_copy(audio[slot],audio[slot^1]+320,640);
   if(!check_twiddle()){board_result.fault=102;break;}
   i=stream_voice(audio[slot]+320);
@@ -87,7 +91,9 @@ void main(void){
 #endif
     {
      unsigned index=board_result.events%BOARD_EVENT_LIMIT, led_start=ticks();
-     led_write(led_patterns[event.label]);
+     led_command(&leds,led_actions[event.label],block);
+     displayed=led_display(&leds,block);
+     led_write(displayed);
      board_result.led_cycles[index]=ticks()-led_start;
      board_result.led_readback[index]=LED_DATA & LED_MASK;
      board_result.quiet_ms[index]=time_ms-core.last_voice_ms;
@@ -98,7 +104,7 @@ void main(void){
       /* Debug stdout halts the core while the host handles the write. */
       capture_stop();
       printf("%u ms  %s  LED=0x%02X\n",event.time_ms,keyword_names[event.label],
-             (unsigned)led_patterns[event.label]);
+             displayed);
       fflush(stdout);
       if(capture_init(hz,BOARD_RAW,2)){board_result.fault=105;break;}
       capture_start();

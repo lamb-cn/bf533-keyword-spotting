@@ -93,16 +93,17 @@ n = capture_read40(out40); /* 0无数据，40有新输出，-1故障 */
 
 ### LED 动作
 
-LED4–LED9 由 Flash A 的 Port B PB0–PB5 驱动。确认关键词即更新灯型，保持到下一个命令。静音和非目标词不触发动作。
+LED4–LED9 由 Flash A 的 Port B PB0–PB5 驱动。初始全灭，选中位置为 LED4。静音和非目标词不改变灯状态。
 
-| 命令 | 点亮 |
+| 命令 | 动作 |
 | --- | --- |
-| four、five、six、seven、eight、nine | 分别点亮 LED4、LED5、LED6、LED7、LED8、LED9 |
-| go | 全亮 |
-| stop | LED4、LED6、LED8 |
-| left | LED4–LED6 |
-| right | LED7–LED9 |
-| off | 全灭 |
+| four、five、six、seven、eight、nine | 翻转对应的 LED4–LED9，并记住该灯位置 |
+| left、right | 翻转上次选中灯的左邻或右邻，并选中该灯。两端循环相接 |
+| go | 从选中灯开始单灯向右循环，每 120 ms 前进一格 |
+| stop | 停止流水灯，恢复流水灯启动前的手动灯状态 |
+| off | 停止流水灯并熄灭所有灯 |
+
+数字或方向命令也会结束流水灯，并在手动灯状态上执行翻转。流水灯按音频块计时，更新时不阻塞识别。
 
 
 测试脚本在实板上逐事件核对 LED 输出寄存器。
