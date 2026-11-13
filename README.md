@@ -28,6 +28,26 @@
 - 工具链：CrossCore Embedded Studio 2.10.0。
 - 验证：BF533单处理器仿真器
 
+## 项目说明文档
+
+- [项目交接与开发状态](BF533语音识别项目交接.md)
+- [完整计算流程](DSP语音识别完整计算流程.md)
+- [实时采集、识别与命令动作](board/codec_capture/README.md)
+- [流水灯与关键词动作](board/codec_capture/流水灯与关键词动作.md)
+- [测试音频数据说明](data/speech_commands_test_small/README.md)
+- [端到端仿真报告](work/end_to_end/端到端仿真报告.md)
+- [数据搬运与调度设计](work/end_to_end/数据搬运与调度设计.md)
+- [CNN 汇编性能报告](work/cnn_asm/性能报告.md)
+- [CNN 后续算子报告](work/cnn_asm/后续算子报告.md)
+- [MFCC 实现与验证](work/mfcc_ops/实现与验证.md)
+- [MFCC 完整帧 API](work/mfcc_ops/complete_api.md)
+- [流式验证说明](work/streaming/流式验证说明.md)
+- [长语音流式仿真历史](work/streaming/当前进展报告.md)
+- [流式测试停止时记录](work/streaming/停止时进展.md)
+- [CNN 汇编设计计划](docs/superpowers/plans/2026-10-29-cnn-asm.md)
+- [尾部算子设计计划](docs/superpowers/plans/2026-10-30-tail-ops.md)
+- [CNN 汇编设计规格](docs/superpowers/specs/2026-10-29-cnn-asm-design.md)
+- [后续算子设计规格](docs/superpowers/specs/2026-10-30-remaining-ops-design.md)
 ## 参考资料
 
 - [Arm ML-KWS-for-MCU](https://github.com/ARM-software/ML-KWS-for-MCU)
